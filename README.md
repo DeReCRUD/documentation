@@ -97,6 +97,6 @@ or maintenance screen again!
 
 ## Explore in more detail
 
-* Existing features - TBD
-* Planned features - TBD
-* Origin of the project - TBD
+* [Current features](features.md#current)
+* [Planned features](features.md#future)
+* [Origin of the project](origins.md)
