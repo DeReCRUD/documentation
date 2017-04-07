@@ -1,0 +1,229 @@
+[
+    {
+        "name": "Family",
+        "label": "Family",
+        "collectionLabel": "Families",
+        "fields": [
+            {
+                "name": "Id",
+                "type": "integer",
+                "hidden": true,
+                "required": true,
+                "initial_value": 0,
+                "key_field": true
+            },
+            {
+                "name": "Name",
+                "type": "text",
+                "maxlength": 50,
+                "placeholder": "Family Name",
+                "required": true
+            },
+            {
+                "name": "Started",
+                "type": "Date",
+                "placeholder": "Date Family Started",
+                "required": false
+            },
+            {
+                "name": "Father",
+                "type": "foreignKey",
+                "reference": {
+                    "name": "Person",
+                    "label_field": "FullName"
+                }
+            },
+            {
+                "name": "Mother",
+                "type": "foreignKey",
+                "reference": {
+                    "name": "Person",
+                    "label_field": "FullName"
+                }
+            },
+            {
+                "name": "Kids",
+                "type": "linkedStruct",
+                "reference": {
+                    "name": "Person",
+                    "label_field": "FullName"
+                }
+            }
+        ],
+        "blocks": [
+            {
+                "name": "Info",
+                "label": {
+                    "short": "Info",
+                    "medium": "Family Info",
+                    "long": "Basic Family Information"
+                },
+                "fields": ["Name", "Started"]
+            },
+            {
+                "name": "Parents",
+                "label": "Parents",
+                "fields": ["Father", "Mother"]
+            },
+            {
+                "name": "Children",
+                "label": {
+                    "short": "Kids",
+                    "medium": "Children"
+                },
+                "fields": ["Kids"]
+            }
+        ]
+    },
+    {
+        "name": "Person",
+        "label": "Person",
+        "collectionLabel": "People",
+        "fields": [
+            {
+                "name": "Id",
+                "type": "integer",
+                "hidden": true,
+                "required": true,
+                "initial_value": 0,
+                "key_field": true
+            },
+            {
+                "name": "Birthday",
+                "label": {
+                    "short": "DOB",
+                    "medium": "Birthday",
+                    "long": "Date of Birth"
+                },
+                "type": "Date",					
+                "placeholder": "Date of Birth",
+                "required": true,
+                "hints": {
+                    "width": 120
+                }
+            },
+            {
+                "name": "Title",
+                "label": {
+                    "short": "Title",
+                    "medium": "First Name"
+                },
+                "type": "text",
+                "placeholder": "First Name"
+            },
+            {
+                "name": "Firstname",
+                "label": {
+                    "short": "First",
+                    "medium": "First Name"
+                },
+                "type": "text",
+                "placeholder": "First Name",
+                "required": true
+            },
+            {
+                "name": "Middlename",
+                "label": {
+                    "short": "Middle",
+                    "medium": "Middle Name"
+                },
+                "type": "text",
+                "placeholder": "Middle Name"
+            },
+            {
+                "name": "MiddleInitial",
+                "label": {
+                    "short": "M. I.",
+                    "medium": "Middle Initial"
+                },
+                "type": "derived",
+                "placeholder": "Middle Initial",
+                "pattern": "{substring(Middlename, 0, 1)}}"
+            },
+            {
+                "name": "Lastname",
+                "label": {
+                    "short": "Last",
+                    "medium": "Last Name"
+                },
+                "type": "text",
+                "placeholder": "Last Name",
+                "required": true
+            },
+            {
+                "name": "Suffix",
+                "label": {
+                    "short": "Suf",
+                    "medium": "Suffix"
+                },
+                "type": "text",
+                "placeholder": "Suffix"
+            },
+            {
+                "name": "Fullname",
+                "label": "Full Name",
+                "type": "derived",
+                "pattern": "{Title }{Firstname}{ Middlename}{ Lastname}{ Suffix}",
+                "unique": true
+            },
+            {
+                "name": "Displayname",
+                "label": "Display Name",
+                "type": "derived",                
+                "pattern": "{Firstname}{ Lastname}{ Suffix}",
+                "unique": true
+            },
+            {
+                "name": "Gender",
+                "label": "Gender",
+                "type": "List",
+                "options": [
+                    {
+                        "label": {
+                            "short": "F",
+                            "medium": "Female"
+                        },
+                        "value": "Female"
+                    },
+                    {
+                        "label": {
+                            "short": "M",
+                            "medium": "Male"
+                        },
+                        "value": "Male"
+                    }
+                ]
+            },
+            {
+                "name": "Spouse",
+                "label": "Spouse",
+                "type": "foreignKey",
+                "reference": {
+                    "name": "Person",
+                    "label_field": "Displayname"
+                }
+            },
+            {
+                "name": "Children",
+                "label": "Children",
+                "type": "linkedStruct",
+                "reference": {
+                    "name": "Person",
+                    "label_field": "Displayname"
+                }
+            }
+        ]
+    },
+    {
+        "name": "parenthood",
+
+        "fields": [
+            {
+                "name": "Adopted",
+                
+                "type": "boolean",
+                "missing_value": false
+            }
+        ]
+    }	
+]
