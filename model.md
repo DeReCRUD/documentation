@@ -103,7 +103,7 @@ A grouping of fields displayed in the UI
 | name    | ref           | true      | The common name used to identify the block     |
 | label   | string or [Label](#label) | false | Describes the block in the UI          |
 | condition | [condition](#condition) | false | [condition](#condition) evaluated to determine if the block should be displayed |
-| fields  | Array of Strings and [Conditional Field Reference](#conditional_field_reference)s      | true      | Array of fieldname and [Conditional Field Reference](#conditional_field_reference)s included in the block in display order     |
+| fields  | Array of Strings and/or [Conditional Field Reference](#conditional_field_reference)s      | true      | Array of fieldname and [Conditional Field Reference](#conditional_field_reference)s included in the block in display order     |
 | hints   | [hint](#hint) | false     | Display recomendation to the UI                |
 
 
