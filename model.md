@@ -10,10 +10,10 @@ This is the primary object...
 | label   | string or [Label](#label) | true     | Describes the struct in the UI                         |
 | collectionLabel | string or [Label](#label) | true | Describes a collection of the struct in the UI     |
 | fields  | [Field](#field)[]         | true     |                                                        |
-| blocks  | [block](#block)[]         | true     | Array of [blocks](#block)
+| blocks  | [block](#block)[]         | true     | Array of [blocks](#block)                              |
 
 
-### <a name="field></a> Field
+### <a name="field"></a> Field
 
 The property level portions of a [struct](#struct)
 
@@ -102,7 +102,8 @@ A grouping of fields displayed in the UI
 |---------|---------------|-----------|------------------------------------------------|
 | name    | ref           | true      | The common name used to identify the block     |
 | label   | string or [Label](#label) | false | Describes the block in the UI          |
-| fields  | string[]      | true      | Array of fieldnames included in the block      |
+| condition | [condition](#condition) | false | [condition](#condition) evaluated to determine if the block should be displayed |
+| fields  | Array of Strings and [Conditional Field Reference](#conditional_field_reference)s      | true      | Array of fieldname and [Conditional Field Reference](#conditional_field_reference)s included in the block in display order     |
 | hints   | [hint](#hint) | false     | Display recomendation to the UI                |
 
 
@@ -144,3 +145,20 @@ Recommendations given to the UI about how to display the form element.  Applies 
 |----------|--------------------------|----------|---------------------------------------------|
 | label    | string or [Label](#label)| true     | The display value for the option in the UI  |
 | value    | value cosistent with the field [type](#type) | true | the value associated with the option |
+
+
+### <a name="conditional_field_reference"></a> Conditional Field Reference
+
+References a Field and defines a condition to be evaluated to determine if the field should be displayed.
+
+| Field     | Type                     | Required | Notes                                     |
+|-----------|--------------------------|----------|-------------------------------------------|
+| field     | string                   | true     | The name of the field to display  |
+| condition | [condition](#condition)  | true     | expression to be evaluated to determine if field should be displayed |
+
+
+### <a name="conditional"></a> Condition
+
+An expression that if evaluated as truthy or falsy.
+
+

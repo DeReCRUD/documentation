@@ -7,7 +7,6 @@
             {
                 "name": "Id",
                 "type": "integer",
-                "hidden": true,
                 "required": true,
                 "initial_value": 0,
                 "key_field": true
@@ -83,7 +82,6 @@
             {
                 "name": "Id",
                 "type": "integer",
-                "hidden": true,
                 "required": true,
                 "initial_value": 0,
                 "key_field": true
@@ -212,17 +210,64 @@
                     "label_field": "Displayname"
                 }
             }
+        ],
+        "blocks": [
+            {
+                "name": "Small_List",
+                "fields": ["Fullname", "Gender", "Birthday"]
+            },
+            {
+                "name": "data_entry",
+                "label": "Personal Info",
+                "fields": [
+                    "Title",
+                    "Firstname",
+                    "Middlename",
+                    "Lastname",
+                    "Suffix",
+                    "Gender",
+                    "Birthday",
+                    "Spouse",
+                    "Children"
+                ]
+            }
         ]
     },
     {
         "name": "parenthood",
-
         "fields": [
             {
-                "name": "Adopted",
-                
+                "name": "Adopted",                
                 "type": "boolean",
                 "missing_value": false
+            },
+            {
+                "name": "AdoptionDate",
+                "label": "Date Adopted",
+                "type": "Date"
+            },
+            {
+                "name": "Parent",
+                "type": "foreignKey",
+                "reference": {
+                    "name": "Person",
+                    "label_field": "Displayname"
+                }
+            },
+            {
+                "name": "Child",
+                "type": "foreignKey",
+                "reference": {
+                    "name": "Person",
+                    "label_field": "Displayname"
+                }
+            }
+        ],
+        "blocks": [
+            {
+                "name": "data_entry",
+                "fields": ["Parent", "Child", "Adopted",
+                     { "field": "AdoptionDate", "condition": "{Adopted}"}]
             }
         ]
     }	
