@@ -6,29 +6,29 @@ This is the primary object...
 
 | Field   | Type                      | Required | Notes                                                  |
 |---------|---------------------------|----------|--------------------------------------------------------|
-| name    | ref                       | true     | The common name used to identity the type of structure |
+| name    | keyword                       | true     | The common name used to identify the type of structure |
 | label   | string or [Label](#label) | true     | Describes the struct in the UI                         |
 | collectionLabel | string or [Label](#label) | true | Describes a collection of the struct in the UI     |
 | fields  | [Field](#field)[]         | true     |                                                        |
-| blocks  | [block](#block)[]         | true     | Array of [blocks](#block)                              |
+| blocks  | [Block](#block)[]         | true     | Array of [Blocks](#block)                              |
 
 
 ### <a name="field"></a> Field
 
-The property level portions of a [struct](#struct)
+The property level portions of a [Struct](#struct)
 
 | Field   | Type          | Required | Missing Val | Notes                                     |
 |---------|---------------|----------|------------ |-------------------------------------------|
-| name    | ref           | true     | N/A         | The common name used to describe identify the field |
+| name    | keyword           | true     | N/A         | The common name used to describe identify the field |
 | label   | string or [Label](#label)| true | N/A  | Describes the field in the UI             |
 | type    | string        | true     | N/A         | Identifies the [Type](#type) of the field |
 | key_field | boolean     | false    | false       | Indicates that the field is used as the key or part of a composite key to identify a specific instance of a struct |
 | required| boolean       | false    | false       | Indicates that the field is required in order to be saved |
 | unique  | boolean       | false    | false       | The field value must be unique across all instances of the same struct |
-| initial_value | value cosistent with the field [type](#type) | false |  | The value used when an instance of the struct is created |
-| missing_value | value cosistent with the field [type](#type) | false |  | The value to be used if a value for the struct has not been set |
+| initial_value | value consistent with the field [type](#type) | false |  | The value used when an instance of the struct is created |
+| missing_value | value consistent with the field [type](#type) | false |  | The value to be used if a value for the struct has not been set |
 | placeholder | string    | false    |             | A string to display in the UI when no value is defined |
-| hints       | [hint](#hint) | false |            | Display recomendation to the UI   |
+| hints       | [Hint](#hint) | false |            | Display recomendation to the UI   |
 
 
 #### Additional properties for fields of [type](#type) text
@@ -81,7 +81,7 @@ The property level portions of a [struct](#struct)
 | Type         | Description                                       |
 |--------------|---------------------------------------------------|
 | text         |                                                   |
-| ref          | A string with no whitespace characters            |
+| keyword          | A string with no whitespace characters            |
 | integer      |                                                   |
 | estimate     | The approximation of an decimal value             |
 | date         |                                                   |
@@ -100,7 +100,7 @@ A grouping of fields displayed in the UI
 
 | Field   | Type          | Required  | Notes                                          |
 |---------|---------------|-----------|------------------------------------------------|
-| name    | ref           | true      | The common name used to identify the block     |
+| name    | keyword           | true      | The common name used to identify the block     |
 | label   | string or [Label](#label) | false | Describes the block in the UI          |
 | condition | [condition](#condition) | false | [condition](#condition) evaluated to determine if the block should be displayed |
 | fields  | Array of Strings and/or [Conditional Field Reference](#conditional_field_reference)s      | true      | Array of fieldname and [Conditional Field Reference](#conditional_field_reference)s included in the block in display order     |
@@ -125,7 +125,7 @@ Describes a relationship to another struct
 
 | Field       | Type     | Required | Missing Val | Notes                                     |
 |-------------|----------|----------|------------ |-------------------------------------------|
-| name        | ref      | true     | N/A         | The name of the other [struct](#struct)   |
+| name        | keyword  | true     | N/A         | The name of the other [struct](#struct)   |
 | label_field | string   | true     | N/A         | The name of the [field](#field) whose value will identify the other [struct](#struct) instance.
 
 
