@@ -136,7 +136,7 @@
                 },
                 "type": "derived",
                 "placeholder": "Middle Initial",
-                "pattern": "{substring(Middlename, 0, 1)}}"
+                "pattern": "{substring(Middlename, 0, 1)}"
             },
             {
                 "name": "Lastname",
@@ -161,14 +161,14 @@
                 "name": "Fullname",
                 "label": "Full Name",
                 "type": "derived",
-                "pattern": "{Title }{Firstname}{ Middlename}{ Lastname}{ Suffix}",
+                "pattern": "{Title & ' '}{Firstname}{' ' & Middlename}{' ' & Lastname}{' ' & Suffix}",
                 "unique": true
             },
             {
                 "name": "Displayname",
                 "label": "Display Name",
                 "type": "derived",                
-                "pattern": "{Firstname}{ Lastname}{ Suffix}",
+                "pattern": "{Firstname}{' ' & Lastname}{' ' & Suffix}",
                 "unique": true
             },
             {
