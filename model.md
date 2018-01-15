@@ -22,11 +22,11 @@ The property level portions of a [Struct](#struct)
 | name    | keyword           | true     | N/A         | The common name used to describe identify the field |
 | label   | string or [Label](#label)| true | N/A  | Describes the field in the UI             |
 | type    | string        | true     | N/A         | Identifies the [Type](#type) of the field |
-| key_field | boolean     | false    | false       | Indicates that the field is used as the key or part of a composite key to identify a specific instance of a struct |
+| keyField | boolean     | false    | false       | Indicates that the field is used as the key or part of a composite key to identify a specific instance of a struct |
 | required| boolean       | false    | false       | Indicates that the field is required in order to be saved |
 | unique  | boolean       | false    | false       | The field value must be unique across all instances of the same struct |
-| initial_value | value consistent with the field [type](#type) | false |  | The value used when an instance of the struct is created |
-| missing_value | value consistent with the field [type](#type) | false |  | The value to be used if a value for the struct has not been set |
+| initialValue | value consistent with the field [type](#type) | false |  | The value used when an instance of the struct is created |
+| missingValue | value consistent with the field [type](#type) | false |  | The value to be used if a value for the struct has not been set |
 | placeholder | string    | false    |             | A string to display in the UI when no value is defined |
 | hints       | [Hint](#hint) | false |            | Display recomendation to the UI   |
 
@@ -126,7 +126,7 @@ Describes a relationship to another struct
 | Field       | Type     | Required | Missing Val | Notes                                     |
 |-------------|----------|----------|------------ |-------------------------------------------|
 | name        | keyword  | true     | N/A         | The name of the other [struct](#struct)   |
-| label_field | string   | true     | N/A         | The name of the [field](#field) whose value will identify the other [struct](#struct) instance.
+| labelField | string   | true     | N/A         | The name of the [field](#field) whose value will identify the other [struct](#struct) instance.
 
 
 ### <a name="hint"></a> Hint
