@@ -8,8 +8,8 @@
                 "name": "Id",
                 "type": "integer",
                 "required": true,
-                "initial_value": 0,
-                "key_field": true
+                "initialValue": 0,
+                "keyField": true
             },
             {
                 "name": "Name",
@@ -29,7 +29,7 @@
                 "type": "foreignKey",
                 "reference": {
                     "name": "Person",
-                    "label_field": "FullName"
+                    "labelField": "FullName"
                 }
             },
             {
@@ -37,7 +37,7 @@
                 "type": "foreignKey",
                 "reference": {
                     "name": "Person",
-                    "label_field": "FullName"
+                    "labelField": "FullName"
                 }
             },
             {
@@ -45,7 +45,7 @@
                 "type": "linkedStruct",
                 "reference": {
                     "name": "Person",
-                    "label_field": "FullName"
+                    "labelField": "FullName"
                 }
             }
         ],
@@ -83,8 +83,8 @@
                 "name": "Id",
                 "type": "integer",
                 "required": true,
-                "initial_value": 0,
-                "key_field": true
+                "initialValue": 0,
+                "keyField": true
             },
             {
                 "name": "Birthday",
@@ -198,7 +198,7 @@
                 "type": "foreignKey",
                 "reference": {
                     "name": "Person",
-                    "label_field": "Displayname"
+                    "labelField": "Displayname"
                 }
             },
             {
@@ -207,7 +207,7 @@
                 "type": "linkedStruct",
                 "reference": {
                     "name": "Person",
-                    "label_field": "Displayname"
+                    "labelField": "Displayname"
                 }
             }
         ],
@@ -239,7 +239,7 @@
             {
                 "name": "Adopted",                
                 "type": "boolean",
-                "missing_value": false
+                "missingValue": false
             },
             {
                 "name": "AdoptionDate",
@@ -251,7 +251,7 @@
                 "type": "foreignKey",
                 "reference": {
                     "name": "Person",
-                    "label_field": "Displayname"
+                    "labelField": "Displayname"
                 }
             },
             {
@@ -259,7 +259,7 @@
                 "type": "foreignKey",
                 "reference": {
                     "name": "Person",
-                    "label_field": "Displayname"
+                    "labelField": "Displayname"
                 }
             }
         ],
