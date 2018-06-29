@@ -2,13 +2,13 @@
 
 ### <a name="struct"></a> Struct
 
-This is the primary object...
+This is the primary object
 
 | Field           | Type                      | Required | Notes                                                  |
 | --------------- | ------------------------- | -------- | ------------------------------------------------------ |
 | name            | keyword                   | true     | The common name used to identify the type of structure |
-| label           | string or [Label](#label) | true     | Describes the struct in the UI                         |
-| collectionLabel | string or [Label](#label) | true     | Describes a collection of the struct in the UI         |
+| label           | string or [Label](#label) | false     | Describes the struct in the UI                         |
+| collectionLabel | string or [Label](#label) | false     | Describes a collection of the struct in the UI         |
 | fields          | [Field](#field)[]         | true     | Array of [Fields](#field)                              |
 | blocks          | [Block](#block)[]         | true     | Array of [Blocks](#block)                              |
 
